@@ -24,9 +24,6 @@ func BenchScript(totalRequest int, clientNum int, f func() error) {
 	}
 	start := time.Now()
 	log.Println("start send requests at", start)
-	//rest, _ := pingClient.QueryMethod(context.Background(), &servicePb.MethodRequest{Service: "ofo.ping.v1.PingService", Method: "ping", Body: "{\"token\":\"ping\"}"})
-	//log.Infoln(rest)
-	//time.Sleep(1000 * time.Second)
 	for i := 0; i < clientNum; i++ {
 		wg.Add(1)
 		go func(i int) {
